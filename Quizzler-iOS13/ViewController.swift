@@ -15,6 +15,8 @@ class ViewController: UIViewController {
   @IBOutlet weak var falseButton: UIButton!
   @IBOutlet weak var progressBar: UIProgressView!
   
+  
+  //var total = 0
   var questionIndex = 0
   var question = QuizBrain().question
   
@@ -30,6 +32,14 @@ class ViewController: UIViewController {
     } else {
       sender.backgroundColor = .red
     }
+    
+    if self.questionIndex < self.question.count - 1 {
+      questionIndex += 1
+      self.QuestionLabel.text = self.question[questionIndex].question
+
+      print(questionIndex)
+    }
+    
     DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
       sender.backgroundColor = .clear
     }
