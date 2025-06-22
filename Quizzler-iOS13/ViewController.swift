@@ -30,5 +30,8 @@ class ViewController: UIViewController {
     } else {
       sender.backgroundColor = .red
     }
+    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+      sender.backgroundColor = .clear
+    }
   }
 }
