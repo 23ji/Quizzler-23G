@@ -15,12 +15,20 @@ class ViewController: UIViewController {
   @IBOutlet weak var falseButton: UIButton!
   @IBOutlet weak var progressBar: UIProgressView!
   
+  var questionIndex = 0
+  var question = QuizBrain().question
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+    self.QuestionLabel.text = self.question[questionIndex].question
   }
   
   
   @IBAction func buttonPressed(_ sender: UIButton) {
+    if sender.currentTitle == self.question[questionIndex].answer {
+      sender.backgroundColor = .green
+    } else {
+      sender.backgroundColor = .red
+    }
   }
 }

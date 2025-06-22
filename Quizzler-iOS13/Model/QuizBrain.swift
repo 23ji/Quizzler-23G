@@ -9,7 +9,7 @@
 import Foundation
 
 class QuizBrain {
-  let quiz: [Question] = [
+  let question: [Question] = [
       Question(q: "A slug's blood is green.", a: "True"),
       Question(q: "Approximately one quarter of human bones are in the feet.", a: "True"),
       Question(q: "The total surface area of two human lungs is approximately 70 square metres.", a: "True"),
