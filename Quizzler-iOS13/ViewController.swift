@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import AVFoundation
+
 
 class ViewController: UIViewController {
   
@@ -20,7 +20,7 @@ class ViewController: UIViewController {
   //var total = 0
   var questionIndex = 0
   var question = QuizBrain().question
-  var player: AVAudioPlayer?
+  
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -31,8 +31,6 @@ class ViewController: UIViewController {
   @IBAction func buttonPressed(_ sender: UIButton) {
     if sender.currentTitle == self.question[questionIndex].answer {
       sender.backgroundColor = .green
-      
-      self.prepareSound()
     } else {
       sender.backgroundColor = .red
     }
@@ -45,13 +43,5 @@ class ViewController: UIViewController {
     DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
       sender.backgroundColor = .clear
     }
-  }
-  
-  func prepareSound() {
-    let path = Bundle.main.path(forResource: "Sound", ofType: "mp3")!
-    let url = URL(fileURLWithPath: path)
-    
-    player = try! AVAudioPlayer(contentsOf: url)
-    player?.prepareToPlay()
   }
 }
